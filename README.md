@@ -49,14 +49,17 @@ Ensure you have the following installed on your system:
   -Docker, 
   -Docker Compose
 - Clone the Repository
-- Place .env in Project Root Your .env should include the required API keys and database URL.
+- Place .env.example in Project Root with your .env file that includes the required API keys and database URL.
 - Build and Start the Docker Environment
 - Wait for Initialization The PostgreSQL container will initialize the database using financial_db.sql and the app will run the report generation flow.
 - Check Output Once complete, your PDF report will be available in the outputs/ directory of the container.
 - View Logs: "docker logs financial_analysis_app"
 
-Remark: A sample query is hardcoded in main.py. You can change it when using or better you can modify it to take inputs from CLI.
-
+- Remark 1: A sample query is hardcoded in main.py. You can change it when using or better you can modify it to take inputs from CLI.
+- Remark 2: Actually, there is no need to call API's for data and the pushed code doesn't. This is because the .sql file already contains this data.
+- Remark 3: Furthermore, the vectors of this database can be found in the folders: faiss_econ_index, faiss_financial_index, faiss_gemini_index, and faiss_price_index which store Stock market, Financial news feeds, Company financial reports, and Economic indicators.
+- Remark 4: The main code already reads these vector databases when present. It doesn't make unnecessary API calls.
+  
 # Testing Strategy
 Run functional tests by triggering the system with different queries (You can test different financial queries by editing the hardcoded question inside main.py) and checking:
   Console logs (via Docker)
