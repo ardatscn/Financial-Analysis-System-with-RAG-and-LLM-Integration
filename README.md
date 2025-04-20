@@ -1,7 +1,30 @@
 # Financial-Analysis-System-with-RAG-and-LLM-Integration
 ![image](https://github.com/user-attachments/assets/1171b06e-c719-4126-b75b-d78466e9f218)
 
-This system enables the generation of AI-powered financial analysis reports using financial news, economic indicators, stock data, and financial filings. It integrates RAG (Retrieval-Augmented Generation), semantic search (FAISS), and LLM-generated insights into a structured PDF output. Access is controlled via an API key with rate limiting and timeout enforcement.
+This system enables the generation of AI-powered financial analysis reports using financial news, economic indicators, stock data, and financial filings. It integrates RAG (Retrieval-Augmented Generation), semantic search (FAISS), and LLM-generated insights into a structured PDF output. Access is controlled via an API key with rate limiting and timeout enforcement. The following features are achieved: 
+- Asynchronous data ingestion from multiple financial sources: Stock market, Financial news feeds, Company financial reports, and Economic indicators.
+- Handles rate limiting and API failures gracefully
+- Implements retry mechanisms with exponential backoff
+- Validates and cleanses incoming data
+- Stores normalized data in appropriate database schemas
+- Primary database (PostgreSQL) for structured financial data
+- Polynomial regression for price prediction
+- RAG Implementation:  LlamaIndex, vector storage, prompt templates, system prompts
+- A PDF report generator that includes:
+- Executive summary
+- Market analysis
+- Technical indicators
+- Price predictions
+- Risk analysis
+- Interactive plots and visualizations (matplotlib)
+- Data sources and methodology
+- A sandboxed environment for code execution
+- Docker container with resource limitations
+- Code validation and security checks
+- Timeout mechanisms
+- Error handling and logging
+- API authentication and authorization
+- Rate limiting
 
 # Authentication Method: Env-based API key
 Valid Keys: Defined in VALID_KEYS list in auth.py
@@ -29,7 +52,7 @@ If no dates are provided, all historical data is used.
   NewsAPI – Financial news articles
   
 # Database
-  PostgreSQL – Financial report data
+  PostgreSQL – Financial data storage (all the used data is stored there)
 
 # Vector Database
 FAISS Indexes – Semantic search for:
