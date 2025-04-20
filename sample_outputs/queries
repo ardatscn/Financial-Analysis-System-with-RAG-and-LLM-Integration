@@ -1,0 +1,5 @@
+AAPL Query -> "Generate a full report on Apple including predictions, risk analysis, and news."
+MSFT Query -> "Generate a full report on Microsoft including predictions, risk analysis, and news."
+GOOGL Query -> "What are the average returns and volatility levels for Alphabet in 2024?"
+META Query -> "What macroeconomic trends impacted Meta Platforms in 2024?"
+AMZN Query -> "Create a summary for the financial and macroeconomic trends impacting Amazon between 2023 and 2024."
