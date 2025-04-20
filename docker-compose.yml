@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  financial_app:
+    build: .
+    container_name: financial_analysis_app
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - NEWS_API_KEY=${NEWS_API_KEY}
+      - POSTGRES_DB_URL=postgresql://postgres:arda2002@db:5432/financial_db
+      - MONGODB_URL=${MONGODB_URL}
+      - API_KEY=key123
+    depends_on:
+      - db
+    mem_limit: 1g
+    cpus: "1.0"
+
+  db:
+    image: postgres:14
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: arda2002
+      POSTGRES_DB: financial_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
+volumes:
+  postgres_data:
