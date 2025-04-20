@@ -48,5 +48,17 @@ Data Sources & Methodology
 Ensure you have the following installed on your system:
   Docker
   Docker Compose
-  
+1- Clone the Repository
+2- Place .env in Project Root Your .env should include the required API keys and database URL.
+3- Build and Start the Docker Environment
+4- Wait for Initialization The PostgreSQL container will initialize the database using init.sql and the app will run the report generation flow.
+5- Check Output Once complete, your PDF report will be available in the outputs/ directory of the container.
+6- View Logs: "docker logs financial_analysis_app"
 
+Remark: A sample query is hardcoded in main.py. You can change it when using or better you can modify it to take inputs from CLI.
+
+# Testing Strategy
+Run functional tests by triggering the system with different queries (You can test different financial queries by editing the hardcoded question inside main.py) and checking:
+  Console logs (via Docker)
+  Generated PDFs in /outputs
+  Logs saved in /logs/app.log
